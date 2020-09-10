@@ -20,7 +20,7 @@ function App() {
           <Switch>
             <Route path="/home" component={MainPage} />
             <Route path="/planet/:planet" exact component={PlanetPage} />
-            <Route exact path="/">
+            <Route exact path="">
               <Redirect to="/home" />
             </Route>
           </Switch>

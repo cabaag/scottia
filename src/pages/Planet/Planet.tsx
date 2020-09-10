@@ -36,11 +36,13 @@ class PlanetPage extends React.Component<PlanetPageProps, PlanetPageState> {
 
   componentDidMount() {
     const { planetId } = this.state;
-    Axios.get(`https://swapi.dev/api/planets/${planetId}`).then(({ data }) => {
-      this.setState({
-        planet: data,
-      });
-    });
+    Axios.get(`https://swapi.dev/api/planets/${planetId}/`)
+      .then(({ data }) => {
+        this.setState({
+          planet: data,
+        });
+      })
+      .catch(() => {});
   }
 
   handleActivateResident = (resident: ResidentType) => {
@@ -77,10 +79,22 @@ class PlanetPage extends React.Component<PlanetPageProps, PlanetPageState> {
           <Typography variant="h3" component="p" gutterBottom>
             {planet?.name}
           </Typography>
-          <p>Population: {planet?.population}</p>
-          <p>Climate: {planet?.climate}</p>
-          <p>Diameter: {planet?.diameter}</p>
-          <p>Terrain: {planet?.terrain}</p>
+          <p>
+            Population:
+            {planet?.population}
+          </p>
+          <p>
+            Climate:
+            {planet?.climate}
+          </p>
+          <p>
+            Diameter:
+            {planet?.diameter}
+          </p>
+          <p>
+            Terrain:
+            {planet?.terrain}
+          </p>
         </Grid>
         {activeResident ? (
           <Grid item container xs={3} direction="column" spacing={3}>

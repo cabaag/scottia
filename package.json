@@ -34,7 +34,7 @@
       "lint": "eslint \"src/**/*.+(js|jsx|ts|tsx)\"",
       "lint:fix": "eslint --fix \"src/**/*.+(js|jsx|ts|tsx)\"",
       "predeploy": "yarn run build",
-      "deploy": "gh-pages -d build",
+      "deploy": "firebase deploy",
       "format": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
       "precommit": "NODE_ENV=production lint-staged"
    },

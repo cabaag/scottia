@@ -40,7 +40,8 @@ const Resident: React.SFC<ResidentProps> = ({
 
   React.useEffect(() => {
     if (residentUrl && !activeResident) {
-      Axios.get(residentUrl).then(({ data }) => {
+      const url = residentUrl.replace("http", "https");
+      Axios.get(url).then(({ data }) => {
         setResident(data);
       });
     }
